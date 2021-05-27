@@ -1,0 +1,11 @@
+<nb-card>
+    <nb-card-header>Nebula</nb-card-header>
+    <nb-card-body>
+        <h1>Open Sheet Music Display Demo</h1>
+        <label for="music-xml-source">URL or XML contents:</label>
+        <textarea id="music-xml-source" style="width: 100%;" [(ngModel)]="xmlfile" rows="10"></textarea>
+        <lib-osmd-renderer source="{{xmlfile}}"></lib-osmd-renderer>
+    </nb-card-body>
+    <nb-card-footer>By Wikipedia</nb-card-footer>
+</nb-card>
+

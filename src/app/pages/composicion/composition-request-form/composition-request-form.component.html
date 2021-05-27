@@ -1,0 +1,29 @@
+<nb-card>
+    <nb-card-header>Especificaciones</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="requestForm" (ngSubmit)="submit(requestForm)">
+            <div class="row">
+              <input class="col" type="text" nbInput placeholder="Título" fullWidth formControlName="movementTitle">
+              <input class="col" type="text" nbInput placeholder="Número de movimiento" formControlName="movementNumber">
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+              <input class="col-6" type="text" nbInput placeholder="Número de compases" formControlName="measures">
+              <nb-select class="col-6" multiple formControlName="instrumentos" placeholder="Instrumentos">
+                <nb-option *ngFor="let instrument of instrumentos" [value]="instrument">{{instrument.name}}</nb-option>
+              </nb-select>
+            </div>
+            <div class="row">
+              <nb-select class="col-6" formControlName="tonalidad" placeholder="Tonalidad">
+                <nb-option *ngFor="let tonalidad of tonalidades" [value]="tonalidad">{{tonalidad.nombre}}</nb-option>
+              </nb-select>
+              <nb-select class="col-6" formControlName="compas" placeholder="Compás">
+                <nb-option *ngFor="let compas of compases" [value]="compas">{{compas.numerador}}/{{compas.denominador}}</nb-option>
+              </nb-select>
+            </div>
+            <button nbButton status="basic" type="submit">Componer!</button>
+        </form>
+    </nb-card-body>
+  </nb-card>

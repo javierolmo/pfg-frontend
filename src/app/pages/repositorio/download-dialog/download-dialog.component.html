@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>Descargar partitura</nb-card-header>
+  <nb-card-body>
+    <p>Elige un formato:</p>
+    <div class="my-4">
+      <button fullWidth nbButton status="primary" (click)='downloadMusicXML()' [disabled]="!sheet.xml">
+        <nb-icon icon='download-outline'></nb-icon>
+        MusicXML
+      </button>
+    </div>
+    <div class="my-4">
+      <button fullWidth nbButton status="primary" (click)='downloadPDF()' [disabled]="!sheet.pdf">
+        <nb-icon icon='download-outline'></nb-icon>
+        PDF
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>

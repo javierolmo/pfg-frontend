@@ -1,0 +1,14 @@
+<span *ngIf="sheet.finished && sheet.pdf && sheet.xml && sheet.specs">
+    <nb-icon status="success" icon="checkmark-outline"></nb-icon>
+</span>
+
+<span *ngIf="sheet.finished && (!sheet.pdf || !sheet.xml || !sheet.specs)">
+    <nb-icon status="danger" icon="alert-triangle-outline"></nb-icon>
+    <button class="mx-2" nbButton ghost shape="round" nbTooltip="Reintentar" (click)="retry(sheet.id)">
+        <nb-icon icon="sync-outline"></nb-icon>
+    </button>
+</span>
+
+<span *ngIf="!sheet.finished">
+    <mat-spinner [diameter]="20"></mat-spinner>
+</span>

@@ -1,0 +1,35 @@
+<nb-card>
+  <nb-card-header>Repositorio</nb-card-header>
+  <nb-card-body>
+
+    <!-- Filtrado -->
+    <div class="busquedaForm">
+      <form [formGroup]="busquedaForm" (ngSubmit)="onSubmit(busquedaForm.value)">
+        <mat-form-field>
+          <mat-label>Filtrar</mat-label>
+          <input matInput formControlName="text">
+        </mat-form-field>
+      </form>
+    </div>
+
+    <nb-list [nbSpinner]="loading">
+      <nb-list-item class="row" *ngFor="let sheet of sheets">
+        <span class="col">{{sheet.name}}</span>
+        <span class="col">{{sheet.date}}</span>
+        <ngx-status [sheet]="sheet" class="col"></ngx-status>
+        <!--
+        <span class="col">Status:
+          <nb-icon icon="checkmark-outline" *ngIf="sheet.finished && sheet.pdf && sheet.xml && sheet.specs"></nb-icon>
+          <nb-icon status="danger" icon="alert-triangle-outline" *ngIf="sheet.finished && (!sheet.pdf || !sheet.xml || !sheet.specs)"></nb-icon>
+          <mat-spinner [diameter]="20" *ngIf="!sheet.finished"></mat-spinner>
+        </span>
+        -->
+        <nb-actions class="ml-auto" size="small" disabled="!sheet.finished">
+          <nb-action icon="eye-outline" (click)="sheet.pdf?openNewTab(sheet.id):null" [disabled]="!sheet.pdf"></nb-action>
+          <nb-action icon="download-outline" (click)="openDownloadDialog(sheet)"></nb-action>
+          <nb-action icon="trash-2-outline" (click)="deleteSheet(sheet.id)"></nb-action>
+        </nb-actions>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
