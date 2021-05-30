@@ -10,6 +10,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.0.145:64001/api',
-  docUrl: 'http://192.168.0.145:64001/swagger-ui/',
+  apiUrl: 'http://localhost:64001/api',
+  docUrl: 'http://localhost:64001/swagger-ui/',
 };
