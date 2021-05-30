@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { User } from '../data/user';
@@ -15,13 +15,18 @@ export class UserService {
   }
 
   getDetails(id:  number ) {
-      const urlRequest = `${environment.apiUrl}/usuarios/${id}/details`;
+      const urlRequest = `${environment.apiUrl}/users/${id}/details`;
       return this.httpClient.get<User>(urlRequest);
   }
 
   postSheetRequest(specs: Specs, userId: number) {
     const urlRequest = `${environment.apiUrl}/users/${userId}/request`;
     return this.httpClient.post<Sheet>(urlRequest, specs);
+  }
+
+  generateToken(duration: number, userId: number) {
+    const urlRequest = `${environment.apiUrl}/users/${userId}/token`;
+    return this.httpClient.get<string>(urlRequest);
   }
 
 

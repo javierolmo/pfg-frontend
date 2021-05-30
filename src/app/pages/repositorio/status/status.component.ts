@@ -16,6 +16,7 @@ export class StatusComponent implements OnInit {
   constructor(private sheetService: SheetService, private toastrService: NbToastrService) { }
 
   ngOnInit(): void {
+      // Vacío
   }
 
   retry(id: number) {
@@ -25,8 +26,8 @@ export class StatusComponent implements OnInit {
           this.toastrService.success(result, 'Tarea planificada');
         },
         error => {
-          console.log(error);
-          this.toastrService.danger(error.message, 'Error al reintentar');
+            console.log(error);
+          this.toastrService.danger(error.error.message, 'Error al reintentar');
         },
     );
   }

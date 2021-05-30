@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComposicionComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+    // Vacío
   }
 
 }

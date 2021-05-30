@@ -1,8 +1,8 @@
-<nb-card>
-    <nb-card-header>Perfil de usuario</nb-card-header>
-    <nb-card-body>
-        <div class="row">
-            <div class="col-6">
+<nb-layout>
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-header>Perfil de usuario</nb-card-header>
+            <nb-card-body>
 
                 <!-- Name -->
                 <div class="m-4">
@@ -25,8 +25,31 @@
                     </nb-form-field>
                 </div>
 
-            </div>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+    <nb-layout-column>
 
-        </div>
-    </nb-card-body>
-</nb-card>
+        <nb-card>
+            <nb-card-header>Token personal</nb-card-header>
+            <nb-card-body>
+                <p>Aquí para el token</p>
+                <div class="row my-4">
+                    <div class="col">
+                        <nb-select fullWidth selected="86400000">
+                            <nb-option value="86400000" >1 Día</nb-option>
+                            <nb-option value="1296000000">15 Días</nb-option>
+                            <nb-option value="2592000000">1 Mes</nb-option>
+                            <nb-option value="5184000000">2 Meses</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col">
+                        <button nbButton (click)="generateToken(10000000)">Generar</button>
+                    </div>
+                </div>
+                <textarea nbInput fullWidth placeholder="Elige duración y pulsa 'Generar' para crear un nuevo token" [value]="token"></textarea>
+            </nb-card-body>
+        </nb-card>
+
+    </nb-layout-column>
+</nb-layout>

@@ -16,7 +16,7 @@ export class DownloadDialogComponent implements OnInit {
   constructor(private dialogRef: NbDialogRef<DownloadDialogComponent>) { }
 
   ngOnInit(): void {
-
+    // Vacío
   }
 
   downloadMusicXML() {
