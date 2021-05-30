@@ -1,0 +1,32 @@
+<nb-card>
+    <nb-card-header>Perfil de usuario</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-6">
+
+                <!-- Name -->
+                <div class="m-4">
+                    <label for="name">Nombre:</label>
+                    <input id="name" type="text" nbInput fullWidth status="basic" [value]="user.name">
+                </div>
+
+                <!-- Surname -->
+                <div class="m-4">
+                    <label for="surname">Apellidos:</label>
+                    <input id="surname" type="text" nbInput fullWidth status="basic" [value]="user.surname">
+                </div>
+
+                <!-- Email -->
+                <div class="m-4">
+                    <label for="email">Email:</label>
+                    <nb-form-field>
+                        <nb-icon nbPrefix icon="at-outline"></nb-icon>
+                        <input id="email" type="email" nbInput fullWidth status="basic" [value]="user.email">
+                    </nb-form-field>
+                </div>
+
+            </div>
+
+        </div>
+    </nb-card-body>
+</nb-card>

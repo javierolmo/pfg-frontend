@@ -29,6 +29,11 @@ const routes: Routes = [{
         .then(m => m.RepositorioModule),
     },
     {
+      path: 'profile',
+      loadChildren: () => import('./profile/profile.module')
+          .then(m => m.ProfileModule),
+    },
+    {
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',

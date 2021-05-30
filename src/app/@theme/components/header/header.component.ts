@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {NB_WINDOW, NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 
-import { map, takeUntil } from 'rxjs/operators';
+import {filter, map, takeUntil} from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { LayoutService } from 'app/@core/utils/layout.service';
 import { UserService } from 'app/@core/utils/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -61,6 +62,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private authService: NbAuthService,
+    private router: Router,
+    @Inject(NB_WINDOW) private window,
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
@@ -70,7 +73,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
       this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
           if (token.isValid()) {
-            console.log(token.getPayload());
             this.usernick = token.getPayload()['sub'];
           }
         });
@@ -102,6 +104,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentTheme = themeName;
         this.rippleService.toggle(themeName?.startsWith('material'));
       });
+
+    this.menuService.onItemClick().pipe(
+        filter(({tag}) => tag === 'context-menu-user'),
+        map(({ item: {title}}) => title),
+    ).subscribe(title => {
+      switch (title) {
+        case 'Profile':
+          this.router.navigateByUrl('/pages/profile');
+          break;
+        case 'Log out':
+          this.window.alert('Not implemented yet!');
+          break;
+      }
+    });
+
   }
 
   ngOnDestroy() {
