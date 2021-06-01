@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 import {User} from '../../@core/data/user';
-import {UserService} from "../../@core/utils/user.service";
-import {NbToastrService} from "@nebular/theme";
+import {UserService} from '../../@core/utils/user.service';
+import {NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-profile',
@@ -35,10 +35,10 @@ export class ProfileComponent implements OnInit {
   generateToken(duration: number) {
     this.loadingToken = true;
     this.userService.generateToken(duration, this.user.id).subscribe(
-        token => {
+        value => {
           this.loadingToken = false;
-          this.token = token;
-          this.toastrService.success('Token generado con éxito!');
+          this.token = value;
+          this.toastrService.success('Token generado con éxito!', 'Éxito');
         },
         error => {
           this.loadingToken = false;

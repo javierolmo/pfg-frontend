@@ -7,6 +7,9 @@ import { UtilService } from 'app/@core/utils/util.service';
 import {UserService} from '../../../@core/utils/user.service';
 import {Tonality} from '../../../@core/data/tonality';
 import {Measure} from '../../../@core/data/measure';
+import {InstrumentService} from '../../../@core/utils/instrument.service';
+import {TonalityService} from '../../../@core/utils/tonality.service';
+import {MeasureService} from '../../../@core/utils/measure.service';
 
 @Component({
   selector: 'ngx-composition-request-form',
@@ -26,14 +29,17 @@ export class CompositionRequestFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastrService: NbToastrService,
     private userService: UserService,
+    private instrumentService: InstrumentService,
+    private tonalityService: TonalityService,
+    private measureService: MeasureService,
   ) {
 
   }
 
   ngOnInit(): void {
-    this.compositionService.getAvailableInstruments().subscribe(instruments => this.instrumentos = instruments);
-    this.compositionService.getAvailableMeasures().subscribe(compases => this.compases = compases);
-    this.compositionService.getAvailableTonalities().subscribe(tonalidades => this.tonalidades = tonalidades);
+    this.instrumentService.getInstruments().subscribe(instruments => this.instrumentos = instruments);
+    this.measureService.getMeasures().subscribe(compases => this.compases = compases);
+    this.tonalityService.getTonalities().subscribe(tonalidades => this.tonalidades = tonalidades);
     this.requestForm = new FormGroup({
       'movementTitle': new FormControl('', Validators.minLength(3)),
       'movementNumber': new FormControl('', Validators.required),
