@@ -34,6 +34,11 @@ const routes: Routes = [{
           .then(m => m.ProfileModule),
     },
     {
+      path: 'admin',
+      loadChildren: () => import('./admin/admin.module')
+          .then(m => m.AdminModule),
+    },
+    {
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',

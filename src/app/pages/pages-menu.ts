@@ -22,6 +22,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/repositorio',
   },
   {
+    title: 'Administración',
+    icon: 'pantone-outline',
+    children: [
+      {
+        title: 'Logs',
+        link: '/pages/admin/logs',
+      },
+    ],
+  },
+  {
     title: 'Cuenta',
     group: true,
   },
