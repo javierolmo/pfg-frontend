@@ -1,3 +1,9 @@
+FROM node:latest AS node
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install
+RUN npm run build:prod
+
 #RUN
 FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
