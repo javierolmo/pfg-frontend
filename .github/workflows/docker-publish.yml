@@ -35,7 +35,7 @@ jobs:
           angular_dist_build_folder: dist
 
   publish_in_dockerhub:
-    name: Push docker image to Docker Hub
+    name: Build and push to dockerhub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
