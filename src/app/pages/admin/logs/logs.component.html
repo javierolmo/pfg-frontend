@@ -5,13 +5,15 @@
                 nbInfiniteList
                 [threshold]="500"
                 (bottomThreshold)="loadNext(firstCard)">
-            <nb-list-item *ngFor="let log of firstCard.logs">
-                <div>
-                    <span class="px-4">{{log.date}}</span>
-                    <span class="px-4">{{log.message}}</span>
-                </div>
+
+            <nb-list-item *ngFor="let log of firstCard.logs" class="p-0">
+                <ngx-log [log]="log"></ngx-log>
             </nb-list-item>
-            <nb-list-item *ngFor="let _ of firstCard.placeholders" nbSpinner="true">Cargando...</nb-list-item>
+
+            <nb-list-item *ngFor="let _ of firstCard.placeholders" nbSpinner="true">
+                Cargando...
+            </nb-list-item>
+
         </nb-list>
     </nb-card-body>
 </nb-card>

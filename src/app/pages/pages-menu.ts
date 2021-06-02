@@ -23,7 +23,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Administración',
-    icon: 'pantone-outline',
+    icon: 'settings-outline',
     children: [
       {
         title: 'Logs',
