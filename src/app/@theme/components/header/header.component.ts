@@ -1,5 +1,12 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {NB_WINDOW, NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
+import {
+  NB_WINDOW,
+  NbIconLibraries,
+  NbMediaBreakpointsService,
+  NbMenuService,
+  NbSidebarService,
+  NbThemeService,
+} from '@nebular/theme';
 
 import {filter, map, takeUntil} from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
@@ -8,6 +15,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { LayoutService } from 'app/@core/utils/layout.service';
 import { UserService } from 'app/@core/utils/user.service';
 import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'ngx-header',
@@ -16,6 +24,8 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  public appname: string = environment.appname;
+  public appversion: string = environment.appversion;
   private destroy$: Subject<void> = new Subject<void>();
   public readonly materialTheme$: Observable<boolean>;
   userPictureOnly: boolean = false;

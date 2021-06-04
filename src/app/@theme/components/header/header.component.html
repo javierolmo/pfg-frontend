@@ -10,7 +10,19 @@
     >
       <nb-icon [icon]="(materialTheme$ | async) ? 'menu-outline' : 'menu-2-outline'"></nb-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()">PFG</a>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <span>
+        <nb-icon icon="logo-32" pack="myicons"></nb-icon>
+        <span class="px-3">{{appname}}</span>
+      </span>
+    </a>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+        assets/images/favicon.svg
+      </svg>
+    </div>
+
+
   </div>
   
   <nb-select
@@ -30,6 +42,11 @@
 
 <div class="header-container">
   <nb-actions size="small">
+
+    <nb-action>
+      <nb-icon icon="pricetags-outline"></nb-icon>
+      <span class="p-3">Versión: {{appversion}}</span>
+    </nb-action>
 
     <!--
     <nb-action class="control-item">

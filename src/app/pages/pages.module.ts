@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbMenuModule } from '@nebular/theme';
+import {NbCardModule, NbLayoutModule, NbMenuModule} from '@nebular/theme';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
@@ -17,6 +17,7 @@ import { ComposicionModule } from './composicion/composicion.module';
         NbCardModule,
         RepositorioModule,
         ComposicionModule,
+        NbLayoutModule,
     ],
   declarations: [
     PagesComponent,
