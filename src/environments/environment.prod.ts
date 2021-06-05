@@ -5,8 +5,7 @@
  */
 export const environment = {
   production: true,
-  apiUrl: window['env']['apiUrl'] || 'http://localhost:64001/api',
-  docUrl: window['env']['docUrl'] || 'http://localhost:64001/swagger-ui/',
+  apiUrl: window['env']['apiUrl'] || 'http://localhost:64001',
   appname: 'Melodía',
-  appversion: '0.3.13',
+  appversion: '0.3.14',
 };

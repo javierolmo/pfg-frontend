@@ -51,7 +51,7 @@ import {AuthGuard} from './@core/utils/auth-guard.service';
           },
           baseEndpoint: environment.apiUrl,
           login: {
-            endpoint: '/auth/login',
+            endpoint: '/api/auth/login',
             method: 'post',
           },
           logout: {

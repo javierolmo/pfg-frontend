@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   usernick: string;
   userpic: any;
+  production: boolean = environment.production;
 
   themes = [
     {

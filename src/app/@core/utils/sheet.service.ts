@@ -13,38 +13,38 @@ export class SheetService {
     }
 
     getSheets(nameSubstring?: string) {
-        let urlRequest = `${environment.apiUrl}/sheets`;
+        let urlRequest = `${environment.apiUrl}/api/sheets`;
         if (nameSubstring !== undefined) urlRequest += '?nameContains=' + nameSubstring;
         return this.httpClient.get<Sheet[]>(urlRequest);
     }
 
     getSheetPage(page: number, size: number, text: string) {
-        const urlRequest = `${environment.apiUrl}/sheets/pages?page=${page}&number=${size}&text=${text}`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/pages?page=${page}&number=${size}&text=${text}`;
         return this.httpClient.get<SheetPage>(urlRequest);
     }
 
     downloadSheetXML(id: number) {
-        const urlRequest = `${environment.apiUrl}/sheets/${id}/download/xml`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/${id}/download/xml`;
         return this.httpClient.get(urlRequest);
     }
 
     getSheetXML(id: number) {
-        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/${id}`;
         return this.httpClient.get(urlRequest, {responseType: 'text'});
     }
 
     getSheet(id: number) {
-        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/${id}`;
         return this.httpClient.get<Sheet>(urlRequest);
     }
 
     deleteSheet(id: number) {
-        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/${id}`;
         return this.httpClient.delete(urlRequest, {responseType: 'text'});
     }
 
     retry(id: number) {
-        const urlRequest = `${environment.apiUrl}/sheets/${id}/retry`;
+        const urlRequest = `${environment.apiUrl}/api/sheets/${id}/retry`;
         return this.httpClient.get(urlRequest, {responseType: 'text'});
     }
 

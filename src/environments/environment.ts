@@ -10,8 +10,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://pfg-uned.duckdns.org:64001/api',
-  docUrl: 'http://pfg-uned.duckdns.org:64001/swagger-ui/',
+  apiUrl: 'http://pfg-uned.duckdns.org:64001',
   appname: 'Melodía',
   appversion: '[develop-env]',
 };

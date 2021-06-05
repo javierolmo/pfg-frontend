@@ -20,12 +20,12 @@ export class DownloadDialogComponent implements OnInit {
   }
 
   downloadMusicXML() {
-    window.location.href = `${environment.apiUrl}/sheets/${(this.sheet.id)}/file/musicxml`;
+    window.location.href = `${environment.apiUrl}/api/sheets/${(this.sheet.id)}/file/musicxml`;
     this.dialogRef.close();
   }
 
   downloadPDF() {
-    window.location.href = `${environment.apiUrl}/sheets/${(this.sheet.id)}/file/pdf`;
+    window.location.href = `${environment.apiUrl}/api/sheets/${(this.sheet.id)}/file/pdf`;
     this.dialogRef.close();
   }
 

@@ -4,8 +4,8 @@
 
     <!-- Filtrado -->
     <div class="pb-4">
-      <form [formGroup]="busquedaForm" (ngSubmit)="refreshSheets(busquedaForm.value.name)">
-        <input style="width: 300px" nbInput formControlName="name" placeholder="Filtrar..." (keyup)="refreshSheets(busquedaForm.value.name)">
+      <form [formGroup]="busquedaForm" (ngSubmit)="filterSheets(busquedaForm.value.name)">
+        <input style="width: 300px" nbInput formControlName="name" placeholder="Filtrar..." (keyup)="filterSheets(busquedaForm.value.name)">
         <span class="mx-5 text-secondary">({{filteredSheets.length}} resultados de {{sheets.length}})</span>
       </form>
     </div>

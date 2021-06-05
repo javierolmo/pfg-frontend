@@ -9,7 +9,7 @@ export class MeasureService {
     constructor(private httpClient: HttpClient)  {}
 
     getMeasures()  {
-        const urlRequest = `${environment.apiUrl}/measures`;
+        const urlRequest = `${environment.apiUrl}/api/measures`;
         return this.httpClient.get<Measure[]>(urlRequest);
     }
 

@@ -21,5 +21,5 @@ import {environment} from '../../../../environments/environment';
 })
 export class FooterComponent {
 
-  documentationUrl = environment.docUrl;
+  documentationUrl = environment.apiUrl + '/swagger-ui/';
 }

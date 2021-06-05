@@ -21,17 +21,17 @@ export class UserService {
   }
 
   getDetails(id:  number ) {
-      const urlRequest = `${environment.apiUrl}/users/${id}/details`;
+      const urlRequest = `${environment.apiUrl}/api/users/${id}/details`;
       return this.httpClient.get<User>(urlRequest);
   }
 
   postSheetRequest(specs: Specs, userId: number) {
-    const urlRequest = `${environment.apiUrl}/users/${userId}/request`;
+    const urlRequest = `${environment.apiUrl}/api/users/${userId}/request`;
     return this.httpClient.post<Sheet>(urlRequest, specs);
   }
 
   generateToken(duration: number, userId: number) {
-    const urlRequest = `${environment.apiUrl}/users/${userId}/token`;
+    const urlRequest = `${environment.apiUrl}/api/users/${userId}/token`;
     const headers = new HttpHeaders().set('Authorization', this.token);
     return this.httpClient.get(urlRequest, {headers: headers, responseType: 'text'});
   }

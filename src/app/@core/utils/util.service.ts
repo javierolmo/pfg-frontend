@@ -11,17 +11,17 @@ export class UtilService {
   constructor(private httpClient: HttpClient)  {}
 
   getAvailableInstruments()  {
-      const urlRequest = `${environment.apiUrl}/util/available-instruments`;
+      const urlRequest = `${environment.apiUrl}/api/util/available-instruments`;
       return this.httpClient.get<Instrumento[]>(urlRequest);
   }
 
   getAvailableMeasures()  {
-    const urlRequest = `${environment.apiUrl}/util/available-measures`;
+    const urlRequest = `${environment.apiUrl}/api/util/available-measures`;
     return this.httpClient.get<Measure[]>(urlRequest);
   }
 
   getAvailableTonalities()  {
-    const urlRequest = `${environment.apiUrl}/util/available-tonalities`;
+    const urlRequest = `${environment.apiUrl}/api/util/available-tonalities`;
     return this.httpClient.get<Tonality[]>(urlRequest);
   }
 

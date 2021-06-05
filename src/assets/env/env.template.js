@@ -3,5 +3,4 @@
 
   // Environment variables
   window["env"]["apiUrl"] = "${API_URL}";
-  window["env"]["docUrl"] = "${DOC_URL}";
 })(this);

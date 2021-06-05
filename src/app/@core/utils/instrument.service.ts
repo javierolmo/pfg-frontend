@@ -9,7 +9,7 @@ export class InstrumentService {
     constructor(private httpClient: HttpClient)  {}
 
     getInstruments()  {
-        const urlRequest = `${environment.apiUrl}/instruments`;
+        const urlRequest = `${environment.apiUrl}/api/instruments`;
         return this.httpClient.get<Instrumento[]>(urlRequest);
     }
 

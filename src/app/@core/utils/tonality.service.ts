@@ -9,7 +9,7 @@ export class TonalityService {
     constructor(private httpClient: HttpClient)  {}
 
     getTonalities()  {
-        const urlRequest = `${environment.apiUrl}/tonalities`;
+        const urlRequest = `${environment.apiUrl}/api/tonalities`;
         return this.httpClient.get<Tonality[]>(urlRequest);
     }
 

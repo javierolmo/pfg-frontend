@@ -43,7 +43,7 @@ export class RepositorioComponent implements OnInit {
             });
     }
 
-    refreshSheets(name: string) {
+    filterSheets(name: string) {
         if (this.busquedaForm.valid) {
             this.loading = true;
             this.filteredSheets = this.sheets.filter(sheet => sheet.name.toLowerCase().includes(name.toLowerCase()));
@@ -63,7 +63,11 @@ export class RepositorioComponent implements OnInit {
         this.sheetService.deleteSheet(id).subscribe(
             value => {
                 this.showToast('Partitura eliminada con éxito!', 'Éxito', 'top-right', 'success');
-                this.refreshSheets('');
+                this.sheetService.getSheets().subscribe(sheets => {
+                    this.sheets = sheets;
+                    this.filterSheets('');
+                });
+                this.filterSheets('');
             },
             error => {
                 this.showToast('No se ha podido eliminar la partitura', 'Error', 'top-right', 'danger');
@@ -75,7 +79,7 @@ export class RepositorioComponent implements OnInit {
     }
 
     openNewTab(id: number) {
-        const url = `${environment.apiUrl}/sheets/${id}.pdf`;
+        const url = `${environment.apiUrl}/api/sheets/${id}.pdf`;
         window.open(url, '_blank');
     }
 

@@ -24,8 +24,9 @@
 
 
   </div>
-  
-  <nb-select
+
+
+  <nb-select *ngIf="!production"
     status="primary"
     matRipple
     [selected]="currentTheme"

@@ -34,7 +34,8 @@ export class LogsComponent {
           cardData.logs.push(...page.content);
           cardData.loading = false;
           cardData.pageToLoadNext++;
-        });
+        },
+            error => console.log(error.error));
   }
 
 }
