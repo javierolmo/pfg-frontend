@@ -54,6 +54,9 @@ import {AuthGuard} from './@core/utils/auth-guard.service';
             endpoint: '/auth/login',
             method: 'post',
           },
+          logout: {
+            endpoint: '',
+          },
         }),
       ],
       forms: {

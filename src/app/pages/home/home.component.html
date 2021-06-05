@@ -1,18 +1,57 @@
 <div class="row">
-    <div class="col">
+    <div class="col-8">
+
+        <!-- Introducción -->
         <nb-card>
             <nb-card-header>INTRODUCCIÓN</nb-card-header>
             <nb-card-body>
                 <p><b style="font-size: large">{{appname}}</b> es un software de composición musical elaborado como
                     Proyecto de Fin de Grado en Ingeniería Informática, UNED.</p>
-                <p>El objetivo principal es la implementación de un algoritmo evolutivo en un caso práctico. Para ello
-                    se ha utilizado la librería <a href="https://jenetics.io/">Jenetics</a> disponible en Java.</p>
+                <p>El objetivo principal es la implementación de un algoritmo evolutivo en un caso real. Para ello se ha
+                    utilizado la librería <a href="https://jenetics.io/">Jenetics</a>, disponible en Java.</p>
+                <p>En la sección "<b>Composición</b>" podrás rellenar un formulario de especificaciones para hacer una
+                    solicitud, que será recibida por el backend y posteriormente derivada al servicio de composición,
+                    el responsable de atender la petición y elaborar el resultado.</p>
+                <p>Podrás ver los resultados de las composiciones una vez finalicen en la sección
+                    "<b>Mi repositorio</b>", donde podrás visualizar y descargar (en formatos .musicxml y .pdf)</p>
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-header>Rellenar</nb-card-header>
+            <nb-card-body>
 
             </nb-card-body>
         </nb-card>
     </div>
-    <div class="col">
+    <div class="col-4">
+
+        <!-- Logo -->
         <object class="w-100" style="max-height: 500px" data="/assets/images/favicon.svg"></object>
+
+        <!-- Changelog -->
+        <nb-card size="giant">
+            <nb-card-header>Changelog</nb-card-header>
+            <nb-card-body>
+
+                <!-- v0.3.14 -->
+                <h6>Versión 0.3.14 (05/06/2021)</h6>
+                <ul>
+                    <li>Sección 'Perfil', permite editar datos de usuario y generar tokens para llamadas al API</li>
+                    <li>Implementación de logout</li>
+                </ul>
+                <hr>
+
+                <!-- v0.3.13 -->
+                <h6>Versión 0.3.13 (04/06/2021)</h6>
+                <ul>
+                    <li>Se incorpora sección administración + vista logs</li>
+                    <li>Mejoras estéticas, logo, tema oscuro</li>
+                </ul>
+                <hr>
+
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
 

@@ -19,21 +19,6 @@ env:
 
 jobs:
 
-  publish_github_pages:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Angular Deploy gh-pages Actions
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN  }}
-          build_configuration: production
-          base_href: /pfg-frontend/
-          deploy_branch: gh-pages
-          angular_dist_build_folder: dist
-
   publish_in_dockerhub:
     name: Build and push to dockerhub
     runs-on: ubuntu-latest
