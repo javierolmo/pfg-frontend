@@ -13,7 +13,7 @@ import {
     NbActionsModule, NbButtonModule,
     NbCardModule, NbContextMenuModule,
     NbDialogModule,
-    NbIconModule,
+    NbIconModule, NbInputModule,
     NbListModule, NbPopoverModule,
     NbSpinnerModule, NbTooltipModule,
 } from '@nebular/theme';
@@ -57,6 +57,7 @@ import { StatusComponent } from './status/status.component';
         NbButtonModule,
         NbTooltipModule,
         NbPopoverModule,
+        NbInputModule,
     ],
   providers: [SheetService],
 })

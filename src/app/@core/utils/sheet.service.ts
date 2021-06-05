@@ -12,10 +12,10 @@ export class SheetService {
 
     }
 
-    getSheets(text: string) {
-      let urlRequest = `${environment.apiUrl}/sheets`;
-      if (text !== undefined) urlRequest += '?text=' + text;
-      return this.httpClient.get<Sheet[]>(urlRequest);
+    getSheets(nameSubstring?: string) {
+        let urlRequest = `${environment.apiUrl}/sheets`;
+        if (nameSubstring !== undefined) urlRequest += '?nameContains=' + nameSubstring;
+        return this.httpClient.get<Sheet[]>(urlRequest);
     }
 
     getSheetPage(page: number, size: number, text: string) {
@@ -23,26 +23,30 @@ export class SheetService {
         return this.httpClient.get<SheetPage>(urlRequest);
     }
 
-  downloadSheetXML(id: number) {
-      const urlRequest = `${environment.apiUrl}/sheets/${id}/download/xml`;
-      return this.httpClient.get(urlRequest);
-  }
+    downloadSheetXML(id: number) {
+        const urlRequest = `${environment.apiUrl}/sheets/${id}/download/xml`;
+        return this.httpClient.get(urlRequest);
+    }
 
-  getSheetXML(id: number) {
-      const urlRequest = `${environment.apiUrl}/sheets/${id}`;
-      return this.httpClient.get(urlRequest, { responseType: 'text' });
-  }
+    getSheetXML(id: number) {
+        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        return this.httpClient.get(urlRequest, {responseType: 'text'});
+    }
 
-  deleteSheet(id: number) {
-    const urlRequest = `${environment.apiUrl}/sheets/${id}`;
-    return this.httpClient.delete(urlRequest, { responseType: 'text'});
-  }
+    getSheet(id: number) {
+        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        return this.httpClient.get<Sheet>(urlRequest);
+    }
 
-  retry(id: number) {
-      const urlRequest = `${environment.apiUrl}/sheets/${id}/retry`;
-      return this.httpClient.get(urlRequest, { responseType: 'text'});
-  }
+    deleteSheet(id: number) {
+        const urlRequest = `${environment.apiUrl}/sheets/${id}`;
+        return this.httpClient.delete(urlRequest, {responseType: 'text'});
+    }
 
+    retry(id: number) {
+        const urlRequest = `${environment.apiUrl}/sheets/${id}/retry`;
+        return this.httpClient.get(urlRequest, {responseType: 'text'});
+    }
 
 
 }
