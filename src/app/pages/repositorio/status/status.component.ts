@@ -39,13 +39,9 @@ export class StatusComponent implements OnInit {
         this.sheetService.getSheet(this.sheet.id).subscribe(
             sheet => {
                 if (sheet.finished) {
-                    this.sheet.finished = true;
+                    this.sheet = sheet;
                     this.refresher.unsubscribe();
                 }
-            },
-            error => {
-                this.sheet.finished = true;
-                this.refresher.unsubscribe();
             });
     }
 

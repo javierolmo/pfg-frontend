@@ -10,7 +10,7 @@ export class AdminService {
     constructor(private httpClient: HttpClient)  {}
 
     getLogs(index: number, size: number, ascendent?: boolean)  {
-        let urlRequest = `${environment.apiUrl}/api/admin/logs?`;
+        let urlRequest = `${environment.apiUrl}/api/admin/logs/page?`;
         if (index !== undefined) urlRequest += `index=${index}&`;
         if (size !== undefined) urlRequest += `size=${size}&`;
         if (ascendent !== undefined) urlRequest += `ascendent=${ascendent}&`;
