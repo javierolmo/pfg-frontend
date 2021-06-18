@@ -54,6 +54,10 @@ import {AuthGuard} from './@core/utils/auth-guard.service';
             endpoint: '/api/auth/login',
             method: 'post',
           },
+          register: {
+            endpoint: '/api/auth/register',
+            method: 'post',
+          },
           logout: {
             endpoint: '',
           },
@@ -67,6 +71,15 @@ import {AuthGuard} from './@core/utils/auth-guard.service';
           showMessages: {
             success: true,
             error: true,
+          },
+          register: {
+            redirectDelay: 500,
+            strategy: 'email',
+            showMessages: {
+              success: true,
+              error: true,
+            },
+            terms: true,
           },
           socialLinks: '',
         },

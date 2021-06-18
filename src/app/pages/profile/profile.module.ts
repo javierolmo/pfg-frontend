@@ -11,10 +11,11 @@ import {
     NbLayoutModule, NbSelectModule
 } from '@nebular/theme';
 import {ProfileComponent} from './profile.component';
+import { DetailsFormComponent } from './details-form/details-form.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent],
+  declarations: [ProfileComponent, DetailsFormComponent],
     imports: [
         CommonModule,
         ProfileRoutingModule,

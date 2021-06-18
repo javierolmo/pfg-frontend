@@ -10,8 +10,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://pfg-uned.duckdns.org:64001',
-  // apiUrl: 'http://localhost:8080',
+  // apiUrl: 'http://pfg-uned.duckdns.org:64001',
+  apiUrl: 'http://localhost:8080',
   appname: 'Melodía',
   appversion: '[develop-env]',
 };

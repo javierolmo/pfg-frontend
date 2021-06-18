@@ -12,9 +12,16 @@ export class SheetService {
 
     }
 
-    getSheets(nameSubstring?: string) {
-        let urlRequest = `${environment.apiUrl}/api/sheets`;
-        if (nameSubstring !== undefined) urlRequest += '?nameContains=' + nameSubstring;
+    getSheets(id?: number, nameSubstring?: string, ownerId?: number, finished?: boolean) {
+        console.log(ownerId);
+        let urlRequest = `${environment.apiUrl}/api/sheets?`;
+
+        // Add parameters
+        if (id !== undefined) urlRequest += 'id=' + id;
+        if (nameSubstring !== undefined) urlRequest += 'nameContains=' + nameSubstring;
+        if (ownerId !== undefined) urlRequest += 'ownerId=' + ownerId;
+        if (finished !== undefined) urlRequest += 'finished=' + finished;
+
         return this.httpClient.get<Sheet[]>(urlRequest);
     }
 

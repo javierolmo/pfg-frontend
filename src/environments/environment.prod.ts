@@ -7,5 +7,5 @@ export const environment = {
   production: true,
   apiUrl: window['env']['apiUrl'] || 'http://localhost:64001',
   appname: 'Melodía',
-  appversion: '0.3.15',
+  appversion: '0.3.16',
 };

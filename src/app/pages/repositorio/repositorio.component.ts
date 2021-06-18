@@ -7,6 +7,7 @@ import {Sheet} from 'app/@core/data/sheet';
 import {SheetService} from 'app/@core/utils/sheet.service';
 import {environment} from 'environments/environment';
 import {DownloadDialogComponent} from './download-dialog/download-dialog.component';
+import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 
 @Component({
     selector: 'ngx-repositorio',
@@ -15,6 +16,7 @@ import {DownloadDialogComponent} from './download-dialog/download-dialog.compone
 })
 export class RepositorioComponent implements OnInit {
 
+    userId: number = null;
     sheets: Sheet[] = [];
     filteredSheets: Sheet[] = [];
     busquedaForm: FormGroup;
@@ -28,14 +30,21 @@ export class RepositorioComponent implements OnInit {
         private nbDialogService: NbDialogService,
         private toastrService: NbToastrService,
         private dialogService: NbDialogService,
+        private authService: NbAuthService,
     ) {
+        this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+            if (token.isValid()) {
+                this.userId = token.getPayload()['id'];
+            }
+        });
+
         this.busquedaForm = formBuilder.group({
             name: '',
         });
     }
 
     ngOnInit(): void {
-        this.sheetService.getSheets().subscribe(
+        this.sheetService.getSheets(undefined, undefined, this.userId).subscribe(
             sheets => {
                 this.sheets = sheets;
                 this.loading = false;
