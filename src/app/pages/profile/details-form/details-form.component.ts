@@ -11,9 +11,12 @@ export class DetailsFormComponent implements OnInit {
   @Input()
   user: User;
 
-  constructor() { }
+  constructor() {
+    // Not empty
+  }
 
   ngOnInit(): void {
+    // Not empty
   }
 
 }

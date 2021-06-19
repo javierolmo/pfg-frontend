@@ -10,6 +10,7 @@ import {Measure} from '../../../@core/data/measure';
 import {InstrumentService} from '../../../@core/utils/instrument.service';
 import {TonalityService} from '../../../@core/utils/tonality.service';
 import {MeasureService} from '../../../@core/utils/measure.service';
+import {NbAuthJWTToken, NbAuthService} from "@nebular/auth";
 
 @Component({
   selector: 'ngx-composition-request-form',
@@ -23,6 +24,7 @@ export class CompositionRequestFormComponent implements OnInit {
   compases: Measure[];
   instrumentos:  Instrumento[];
   requestForm:  FormGroup;
+  userId: number;
 
   constructor(
     private compositionService: UtilService,
@@ -32,8 +34,13 @@ export class CompositionRequestFormComponent implements OnInit {
     private instrumentService: InstrumentService,
     private tonalityService: TonalityService,
     private measureService: MeasureService,
+    private authService: NbAuthService,
   ) {
-
+    this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+      if (token.isValid()) {
+        this.userId = token.getPayload()['id'];
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -54,7 +61,7 @@ export class CompositionRequestFormComponent implements OnInit {
     if (request.valid) {
       const specs: Specs = request.value;
       specs.authors = ['Javier Olmo Injerto'];
-      this.userService.postSheetRequest(specs, 1).subscribe(
+      this.userService.postSheetRequest(specs, this.userId).subscribe(
         sheet => {
           this.showToast('Tu composición se ha puesto a la cola. Dentro de poco estará disponible', 'Solicitud creada!', 'top-right', 'success');
         },

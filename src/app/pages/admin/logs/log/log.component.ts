@@ -12,9 +12,11 @@ export class LogComponent implements OnInit {
   log: Log;
 
   constructor() {
+    // Not empty
   }
 
   ngOnInit(): void {
+    // Not empty
   }
 
   toNebularStatus(slf4jStatus: string) {

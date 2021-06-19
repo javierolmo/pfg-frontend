@@ -13,7 +13,6 @@ export class SheetService {
     }
 
     getSheets(id?: number, nameSubstring?: string, ownerId?: number, finished?: boolean) {
-        console.log(ownerId);
         let urlRequest = `${environment.apiUrl}/api/sheets?`;
 
         // Add parameters

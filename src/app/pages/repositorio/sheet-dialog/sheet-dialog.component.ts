@@ -13,7 +13,6 @@ export class SheetDialogComponent implements AfterViewInit {
   xmlfile;
 
   constructor(private sheetService: SheetService) {
-    console.log(this.sheetId);
   }
 
   ngAfterViewInit(): void {

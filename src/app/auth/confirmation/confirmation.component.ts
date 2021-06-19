@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ngx-confirmation',
   templateUrl: './confirmation.component.html',
-  styleUrls: ['./confirmation.component.scss']
+  styleUrls: ['./confirmation.component.scss'],
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // Not empty
+  }
 
   ngOnInit(): void {
+    // Not empty
   }
 
 }
